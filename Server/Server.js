@@ -18,4 +18,4 @@ app.get("/", (req, res) => {
 
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
-export default app;
+export default app; 
