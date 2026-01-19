@@ -22,7 +22,7 @@ export const fetchWorkspaces = createAsyncThunk(
 const initialState = {
   workspaces: [],
   currentWorkspace: null,
-  loading: true,
+  loading: false,
 };
 
 const workspaceSlice = createSlice({
@@ -152,11 +152,10 @@ const workspaceSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchWorkspaces.pending, (state) => {
+    builder.addCase(fetchWorkspaces.pending, (state) => {
         state.loading = true;
-      })
-      .addCase(fetchWorkspaces.fulfilled, (state, action) => {
+      });
+      builder.addCase(fetchWorkspaces.fulfilled, (state, action) => {
         state.workspaces = action.payload;
         if (action.payload.length > 0) {
           const localStorageCurrentWorkspaceId = localStorage.getItem('currentWorkspaceId');

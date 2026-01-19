@@ -12,7 +12,7 @@ const Layout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const { loading, workspaces } = useSelector((state) => state.workspace)
     const dispatch = useDispatch()
-    const {user, isloaded} = useUser();
+    const {user, isLoaded} = useUser();
     const{getToken} = useAuth();
 
     // Initial load of theme
@@ -22,10 +22,10 @@ const Layout = () => {
 
     // initial load of workspaces
     useEffect(() => {
-        if(isloaded && user && workspaces.length === 0) {
+        if(isLoaded && user && workspaces.length === 0) {
             dispatch(fetchWorkspaces({getToken}))
         }
-    }, [isloaded, user])
+    }, [user, isLoaded])
 
     if(!user) {
         return (

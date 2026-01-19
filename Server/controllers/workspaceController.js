@@ -1,5 +1,5 @@
 // get all workspaces for user
-export const getWorkspacesForUser = async (req, res) => {
+export const getUserWorkspaces = async (req, res) => {
   try {
     const { userId } = await req.auth;
     const workspaces = await prisma.workspace.findMany({
