@@ -1,6 +1,6 @@
 import express from 'express';
-import { createProject, updateProject } from '../controllers/projectController';
-import { addMember } from '../controllers/workspaceController';
+import { createProject, updateProject } from '../controllers/projectController.js';
+import { addMember } from '../controllers/workspaceController.js';
 
 const projectRouter = express.Router();
 

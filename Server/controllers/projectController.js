@@ -1,5 +1,6 @@
 import prisma from "../configs/prisma.js";
 
+
 // Create project
 export const createProject = async (req, res) => {
   try {
@@ -201,7 +202,7 @@ try {
       }
     })
     res.json({ member, message: "member added successfully" });
-    
+
 } catch (error) {
   console.log(error);
   res.status(500).json({ message: error.code || error.message });
