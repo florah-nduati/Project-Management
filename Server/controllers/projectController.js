@@ -99,7 +99,7 @@ export const createProject = async (req, res) => {
 // update project
 export const updateProject = async (req, res) => {
   try {
-    const userId = req.user.id;
+    const { userId } = await req.auth();
     const {
       id,
       workspaceId,
