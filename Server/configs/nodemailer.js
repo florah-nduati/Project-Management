@@ -1,24 +1,23 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
+  host: "smtp-relay.brevo.com",
   port: 587,
   auth: {
-    user: "maddison53@ethereal.email",
-    pass: "jn7jnAPss4f63QBp6D",
+    user: process.env.SMPT_USER,
+    pass: process.env.SMPT_PASSWORD,
   },
 });
 
-const sendEmail = async({to,subject,body}) => {
-    
-   const response = await transporter.sendMail({
-    from: ,
-    to: ,
-    subject: ,
-    html: "<b>Hello world?</b>", 
+const sendEmail = async ({ to, subject, body }) => {
+  const response = await transporter.sendMail({
+    from: process.env.SENDER_EMAIL,
+    to,
+    subject,
+    html: body,
   });
-}
 
- 
+  return response;
+};
 
-export default transporter
+export default sendEmail;
