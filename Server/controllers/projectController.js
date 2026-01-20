@@ -54,7 +54,6 @@ export const createProject = async (req, res) => {
         status,
         start_date: start_date ? new Date(start_date) : null,
         end_date: end_date ? new Date(end_date) : null,
-        team_members,
         team_lead: teamLead?.id,
         progress,
         priority,
